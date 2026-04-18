@@ -1,3 +1,3 @@
-# Bioacustica - ppgba
+# Bioacustica - PPGBA
 
 > Scripts usados nas análises acústicas na disciplina de Bioacústica do Programa de Pós-Graduação em Biologia Animal.
