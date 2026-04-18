@@ -31,4 +31,6 @@ voc |> seewave::spectro(flim = c(0.65, 4),
                         palette = viridis::inferno,
                         osc = TRUE)
 
+## Criar oscilograma ----
 
+voc |> seewave::oscillo(from = 0.61, to = 0.91)
