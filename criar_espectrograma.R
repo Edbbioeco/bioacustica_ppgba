@@ -23,3 +23,12 @@ voc
 voc |> seewave::spectro(flim = c(0.65, 4),
                         tlim = c(0.61, 0.91),
                         palette = viridis::inferno)
+
+## Criar espectrograma com oscilograma ----
+
+voc |> seewave::spectro(flim = c(0.65, 4),
+                        tlim = c(0.61, 0.91),
+                        palette = viridis::inferno,
+                        osc = TRUE)
+
+
