@@ -2,8 +2,6 @@
 
 library(seewave)
 
-library(tidyverse)
-
 library(viridis)
 
 # Dados ----
