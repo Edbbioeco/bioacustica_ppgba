@@ -56,9 +56,9 @@ gg_espectro <- voc |>
   stat_contour(geom="polygon",
                aes(fill = after_stat(level)),
                bins = 1000) +
-  scale_x_continuous(limits = c(15, 16.75),
+  scale_x_continuous(limits = c(16.275, 16.625),
                      expand = FALSE) +
-  scale_y_continuous(limits = c(0, 0.75),
+  scale_y_continuous(limits = c(0.15, 0.72),
                      expand = FALSE) +
   scale_fill_viridis_c(option = "inferno",
                        name = "Amplitude (dB)",
@@ -84,7 +84,7 @@ gg_espectro
 
 gg_oscilo <- oscilo_df |>
   ggplot(aes(tempo, amplitude)) +
-  geom_line() +
+  geom_line(linewidth = 1) +
   labs(y = "Amplitude (KU)") +
   theme_classic() +
   theme(axis.text = element_text(size = 17.5),
