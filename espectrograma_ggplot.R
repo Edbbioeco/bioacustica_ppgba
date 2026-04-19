@@ -6,6 +6,12 @@ library(seewave)
 
 library(tidyverse)
 
+library(viridis)
+
+library(ggview)
+
+library(patchwork)
+
 # Dados ----
 
 ## Importar ----
