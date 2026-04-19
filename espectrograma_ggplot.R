@@ -41,3 +41,11 @@ espectro_df
 ### Criar ----
 
 oscilo <- voc |> seewave::oscillo(from = 15, to = 16.75)
+
+### Data frame ----
+
+oscilo_df <- tibble::tibble(tempo = seq(0, seewave::duration(voc),
+                                        length.out = length(oscilo)),
+                            amplitude = oscilo |> as.numeric())
+
+oscilo_df
