@@ -26,3 +26,12 @@ voc |> seewave::listen(f = 0.75)
 
 espectro <- voc |> seewave::spectro(flim = c(0, 0.75),
                                     tlim = c(15, 16.75))
+
+### Data frame dos valore ----
+
+espectro_df <- tibble::tibble(tempo = rep(espectro$time,
+                                          each = length(espectro$freq)),
+                              frequencia = rep(espectro$freq,
+                                               length(espectro$time)))
+
+espectro_df
