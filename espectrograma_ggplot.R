@@ -16,6 +16,8 @@ voc <- tuneR::readWave("vocalizacao.wav")
 
 voc
 
+voc |> seewave::listen()
+
 # Espectrograma ----
 
 ## Dados do espectrograma ----
