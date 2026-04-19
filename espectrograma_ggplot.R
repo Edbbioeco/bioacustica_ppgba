@@ -22,5 +22,7 @@ voc |> seewave::listen(f = 0.75)
 
 ## Valores do espectrograma ----
 
+### Criar ----
+
 espectro <- voc |> seewave::spectro(flim = c(0, 0.75),
                                     tlim = c(15, 16.75))
