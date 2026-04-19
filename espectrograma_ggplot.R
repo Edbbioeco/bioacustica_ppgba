@@ -22,7 +22,7 @@ voc <- tuneR::readWave("vocalizacao.wav")
 
 voc
 
-voc |> seewave::listen(f = 0.75)
+voc |> seewave::listen()
 
 # Valores acústicos ----
 
