@@ -54,7 +54,7 @@ oscilo_df
 gg_espectro <- voc |>
   seewave::ggspectro() +
   stat_contour(geom="polygon",
-               aes(fill = ..level..),
+               aes(fill = after_stat(level)),
                bins = 1000) +
   scale_x_continuous(limits = c(15, 16.75),
                      expand = FALSE) +
