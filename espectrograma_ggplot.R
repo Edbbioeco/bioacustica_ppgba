@@ -12,3 +12,6 @@ library(tidyverse)
 
 voc <- tuneR::readWave("vocalizacao.wav")
 
+## Visualizar ----
+
+voc
