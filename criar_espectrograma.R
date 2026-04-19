@@ -8,7 +8,7 @@ library(viridis)
 
 ## Importar ----
 
-voc <- tuneR::readWave("Boana atlantica.wav")
+voc <- tuneR::readWave("vocalizacao.wav")
 
 ## Visualizar ----
 
@@ -18,17 +18,17 @@ voc
 
 ## Criar espectrograma ----
 
-voc |> seewave::spectro(flim = c(0.65, 4),
-                        tlim = c(0.61, 0.91),
+voc |> seewave::spectro(flim = c(0.15, 0.72),
+                        tlim = c(16.275, 16.625),
                         palette = viridis::inferno)
 
 ## Criar espectrograma com oscilograma ----
 
-voc |> seewave::spectro(flim = c(0.65, 4),
-                        tlim = c(0.61, 0.91),
+voc |> seewave::spectro(flim = c(0.15, 0.72),
+                        tlim = c(16.275, 16.625),
                         palette = viridis::inferno,
                         osc = TRUE)
 
 ## Criar oscilograma ----
 
-voc |> seewave::oscillo(from = 0.61, to = 0.91)
+voc |> seewave::oscillo(from = 16.275, to = 16.625)
