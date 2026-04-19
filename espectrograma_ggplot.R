@@ -57,6 +57,7 @@ gg_espectro <- voc |>
                aes(fill = after_stat(level)),
                bins = 1000) +
   scale_x_continuous(limits = c(16.275, 16.625),
+                     breaks = seq(0, (16.625 - 16.275), 0.1),
                      expand = FALSE) +
   scale_y_continuous(limits = c(0.15, 0.72),
                      expand = FALSE) +
@@ -85,6 +86,7 @@ gg_espectro
 gg_oscilo <- oscilo_df |>
   ggplot(aes(tempo, amplitude)) +
   geom_line(linewidth = 1) +
+  scale_x_continuous(expand = FALSE) +
   labs(y = "Amplitude (KU)") +
   theme_classic() +
   theme(axis.text = element_text(size = 17.5),
