@@ -35,3 +35,9 @@ espectro_df <- tibble::tibble(tempo = rep(espectro$time,
                                                length(espectro$time)))
 
 espectro_df
+
+## Valores do oscilograma ----
+
+### Criar ----
+
+oscilo <- voc |> seewave::oscillo(from = 15, to = 16.75)
