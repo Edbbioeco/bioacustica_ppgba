@@ -103,3 +103,11 @@ gg_oscilo <- oscilo_df |>
   ggview::canvas(height = 10, width = 12)
 
 gg_oscilo
+
+## Unit os gráficos ----
+
+(gg_espectro / gg_oscilo) &
+  ggview::canvas(height = 10, width = 12)
+
+ggsave(filename = "gg_espectro_oscilo.png",
+       height = 10, width = 12)
