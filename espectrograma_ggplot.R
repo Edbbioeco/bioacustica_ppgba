@@ -16,11 +16,11 @@ voc <- tuneR::readWave("vocalizacao.wav")
 
 voc
 
-voc |> seewave::listen()
+voc |> seewave::listen(f = 0.75)
 
-# Espectrograma ----
+# Valores acústicos ----
 
-## Dados do espectrograma ----
+## Valores do espectrograma ----
 
 espectro <- voc |> seewave::spectro(flim = c(0, 0.75),
                                     tlim = c(15, 16.75))
