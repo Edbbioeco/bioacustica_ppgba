@@ -41,7 +41,7 @@ oscilo <- voc |> seewave::oscillo(from = 16.275, to = 16.625)
 
 ### Data frame ----
 
-oscilo_df <- tibble::tibble(tempo = seq(0, 1.75,
+oscilo_df <- tibble::tibble(tempo = seq(0, (16.625 - 16.275),
                                         length.out = length(oscilo)),
                             amplitude = oscilo |> as.numeric())
 
