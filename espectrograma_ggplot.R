@@ -31,13 +31,13 @@ voc |> seewave::listen()
 ### Criar ----
 
 voc |> seewave::spectro(flim = c(0.15, 0.72),
-                        tlim = c(16.275, 16.6))
+                        tlim = c(16.275, 16.625))
 
 ## Valores do oscilograma ----
 
 ### Criar ----
 
-oscilo <- voc |> seewave::oscillo(from = 15, to = 16.75)
+oscilo <- voc |> seewave::oscillo(from = 16.275, to = 16.6)
 
 ### Data frame ----
 
