@@ -32,7 +32,8 @@ espectro <- voc |> seewave::spectro(flim = c(0, 0.75),
 espectro_df <- tibble::tibble(tempo = rep(espectro$time,
                                           each = length(espectro$freq)),
                               frequencia = rep(espectro$freq,
-                                               length(espectro$time)))
+                                               length(espectro$time)),
+                              amplitude = espectro$amp |> as.numeric())
 
 espectro_df
 
