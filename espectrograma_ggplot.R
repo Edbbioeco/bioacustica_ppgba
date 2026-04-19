@@ -50,3 +50,35 @@ oscilo_df <- tibble::tibble(tempo = seq(0, seewave::duration(voc),
                             amplitude = oscilo |> as.numeric())
 
 oscilo_df
+
+# Gráficos ----
+
+## Eséctrograma ----
+
+gg_espectro <- voc |>
+  seewave::ggspectro() +
+  stat_contour(geom="polygon",
+               aes(fill = ..level..),
+               bins = 1000) +
+  scale_x_continuous(limits = c(15, 16.75),
+                     expand = FALSE) +
+  scale_y_continuous(limits = c(0, 0.75),
+                     expand = FALSE) +
+  scale_fill_viridis_c(name = "Amplitude (dB)",
+                       limits = c(-30, 0),
+                       na.value = "transparent",
+                       guide = guide_colorbar(title.hjust = 0.5,
+                                              barheight = 20,
+                                              frame.colour = "black",
+                                              ticks.colour = "black")) +
+  theme_classic() +
+  theme(axis.text = element_text(size = 17.5),
+        axis.title = element_text(size = 20),
+        axis.title.x = element_blank(),
+        axis.text.x = element_blank(),
+        legend.text = element_text(size = 17.5),
+        legend.title = element_text(size = 20),
+        panel.background = element_rect(fill = viridis::viridis(n = 1))) +
+  ggview::canvas(height = 10, width = 12)
+
+gg_espectro
