@@ -37,7 +37,7 @@ voc |> seewave::spectro(flim = c(0.15, 0.72),
 
 ### Criar ----
 
-oscilo <- voc |> seewave::oscillo(from = 16.275, to = 16.6)
+oscilo <- voc |> seewave::oscillo(from = 16.275, to = 16.625)
 
 ### Data frame ----
 
