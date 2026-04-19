@@ -88,3 +88,18 @@ gg_espectro <- voc |>
   ggview::canvas(height = 10, width = 12)
 
 gg_espectro
+
+## Oscilograma ----
+
+gg_oscilo <- oscilo_df |>
+  ggplot(aes(tempo, amplitude)) +
+  geom_line() +
+  labs(y = "Amplitude (KU)") +
+  theme_classic() +
+  theme(axis.text = element_text(size = 17.5),
+        axis.title = element_text(size = 20),
+        legend.text = element_text(size = 17.5),
+        legend.title = element_text(size = 20)) +
+  ggview::canvas(height = 10, width = 12)
+
+gg_oscilo
