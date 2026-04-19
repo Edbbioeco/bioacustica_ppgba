@@ -60,7 +60,8 @@ gg_espectro <- voc |>
                      expand = FALSE) +
   scale_y_continuous(limits = c(0, 0.75),
                      expand = FALSE) +
-  scale_fill_viridis_c(name = "Amplitude (dB)",
+  scale_fill_viridis_c(option = "inferno",
+                       name = "Amplitude (dB)",
                        limits = c(-30, 0),
                        na.value = "transparent",
                        guide = guide_colorbar(title.hjust = 0.5,
@@ -74,7 +75,7 @@ gg_espectro <- voc |>
         axis.text.x = element_blank(),
         legend.text = element_text(size = 17.5),
         legend.title = element_text(size = 20),
-        panel.background = element_rect(fill = viridis::viridis(n = 1))) +
+        panel.background = element_rect(fill = viridis::inferno(n = 1))) +
   ggview::canvas(height = 10, width = 12)
 
 gg_espectro
