@@ -30,8 +30,8 @@ voc |> seewave::listen()
 
 ### Criar ----
 
-voc |> seewave::spectro(flim = c(0.2, 0.675),
-                        tlim = c(15, 16.75))
+voc |> seewave::spectro(flim = c(0.15, 0.72),
+                        tlim = c(16.275, 16.6))
 
 ## Valores do oscilograma ----
 
