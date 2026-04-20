@@ -52,12 +52,14 @@ oscilo_df
 ## Eséctrograma ----
 
 gg_espectro <- voc |>
+  seewave::cutw(from = 16.275,
+                to = 16.625,
+                output = "Wave") |>
   seewave::ggspectro() +
   stat_contour(geom="polygon",
                aes(fill = after_stat(level)),
                bins = 1000) +
-  scale_x_continuous(limits = c(16.275, 16.625),
-                     breaks = seq(0, (16.625 - 16.275), 0.1),
+  scale_x_continuous(breaks = seq(0, 0.35, 0.1),
                      expand = FALSE) +
   scale_y_continuous(limits = c(0.15, 0.72),
                      expand = FALSE) +
