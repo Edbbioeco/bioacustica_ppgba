@@ -69,6 +69,7 @@ gg_espectro <- voc |>
                                               barheight = 20,
                                               frame.colour = "black",
                                               ticks.colour = "black")) +
+  labs(y = "Frequência (KHz)") +
   theme_classic() +
   theme(axis.text = element_text(size = 17.5),
         axis.title = element_text(size = 20),
