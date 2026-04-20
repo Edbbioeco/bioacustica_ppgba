@@ -65,7 +65,7 @@ gg_espectro <- voc |>
                      expand = FALSE) +
   scale_fill_viridis_c(option = "inferno",
                        name = "Amplitude (dB)",
-                       limits = c(-30, 0),
+                       limits = c(-25, 0),
                        na.value = "transparent",
                        guide = guide_colorbar(title.hjust = 0.5,
                                               barheight = 20,
@@ -77,6 +77,10 @@ gg_espectro <- voc |>
         axis.title = element_text(size = 20),
         axis.title.x = element_blank(),
         axis.text.x = element_blank(),
+        panel.grid = element_line(linetype = "dashed",
+                                  color = "gray",
+                                  linewidth = 1),
+        panel.grid.minor = element_blank(),
         legend.text = element_text(size = 17.5),
         legend.title = element_text(size = 20),
         panel.background = element_rect(fill = viridis::inferno(n = 1))) +
@@ -95,6 +99,10 @@ gg_oscilo <- oscilo_df |>
   theme_classic() +
   theme(axis.text = element_text(size = 17.5),
         axis.title = element_text(size = 20),
+        panel.grid = element_line(linetype = "dashed",
+                                  color = "gray",
+                                  linewidth = 1),
+        panel.grid.minor = element_blank(),
         legend.text = element_text(size = 17.5),
         legend.title = element_text(size = 20)) +
   ggview::canvas(height = 10, width = 12)
