@@ -1,8 +1,8 @@
 # Pacotees ----
 
-library(seewave)
+library(tuneR)
 
-library(viridis)
+library(seewave)
 
 # Dados ----
 
