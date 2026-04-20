@@ -88,7 +88,8 @@ gg_oscilo <- oscilo_df |>
   ggplot(aes(tempo, amplitude)) +
   geom_line(linewidth = 1) +
   scale_x_continuous(expand = FALSE) +
-  labs(y = "Amplitude (KU)") +
+  labs(x = "Tempo (s)",
+       y = "Amplitude (KU)") +
   theme_classic() +
   theme(axis.text = element_text(size = 17.5),
         axis.title = element_text(size = 20),
