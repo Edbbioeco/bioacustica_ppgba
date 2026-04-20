@@ -1,5 +1,7 @@
 .Rproj.user
 .positai
+*.aac
+*.mp3
 *.wav
 *.xlsx
 *.csv
