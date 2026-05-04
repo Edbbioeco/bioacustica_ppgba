@@ -59,7 +59,9 @@ gg_espectro <- voc |>
   seewave::cutw(from = 16.275,
                 to = 16.625,
                 output = "Wave") |>
-  seewave::ggspectro() +
+  seewave::ggspectro(wl = 1024 + 512,
+                     wn = "blackman",
+                     ovlp = 99) +
   stat_contour(geom="polygon",
                aes(fill = after_stat(level)),
                bins = 1000) +
