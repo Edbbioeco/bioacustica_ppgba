@@ -6,9 +6,9 @@ library(seewave)
 
 library(tidyverse)
 
-library(ggmagnify)
-
 library(viridis)
+
+library(ggmagnify)
 
 library(ggview)
 
