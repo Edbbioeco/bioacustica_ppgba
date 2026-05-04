@@ -96,3 +96,27 @@ gg_espectro <- voc |>
 
 gg_espectro
 
+## Oscilograma ----
+
+gg_oscilo <- oscilo_df |>
+  ggplot(aes(tempo, amplitude)) +
+  geom_line(linewidth = 1) +
+  scale_x_continuous(breaks = seq(0,
+                                  voc |> seewave::duration(),
+                                  1),
+                     expand = FALSE) +
+  labs(x = "Tempo (s)",
+       y = "Amplitude (KU)") +
+  theme_classic() +
+  theme(axis.text = element_text(size = 17.5),
+        axis.title = element_text(size = 20),
+        panel.grid = element_line(linetype = "dashed",
+                                  color = "gray50",
+                                  linewidth = 1),
+        panel.grid.minor = element_blank(),
+        legend.text = element_text(size = 17.5),
+        legend.title = element_text(size = 20)) +
+  ggview::canvas(height = 10, width = 12)
+
+gg_oscilo
+
