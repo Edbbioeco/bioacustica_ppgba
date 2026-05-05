@@ -109,7 +109,7 @@ gg_oscilo <- oscilo_df |>
   theme(axis.text = element_text(size = 17.5),
         axis.title = element_text(size = 20),
         panel.grid = element_line(linetype = "dashed",
-                                  color = "gray50",
+                                  color = "gray",
                                   linewidth = 1),
         panel.grid.minor = element_blank(),
         legend.text = element_text(size = 17.5),
