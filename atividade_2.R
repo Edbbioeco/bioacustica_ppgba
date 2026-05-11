@@ -22,6 +22,7 @@ dados <- purrr::map2(1:10,
                                             .fns = ~as.numeric(.)),
                               dplyr::across(.cols = dplyr::contains("Freq"),
                                             .fns = ~./1000),
+                              Gênero = gen,
                               ID = paste0(gen, " ", id))
             }) |>
   dplyr::bind_rows()
