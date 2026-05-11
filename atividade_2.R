@@ -49,6 +49,7 @@ dados
 estatísticas <- dados |>
   dplyr::summarise(Média = `Peak Freq (Hz)` |> mean(),
                    `Desvio Padrão` = `Peak Freq (Hz)` |> sd(),
+                   `Coeficiente de Variação` = (`Desvio Padrão` / Média) * 100,
                    .by = c(Nota, Gênero))
 
 estatísticas
