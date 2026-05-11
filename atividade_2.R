@@ -21,7 +21,7 @@ dados <- purrr::map2(1:10,
                 dplyr::mutate(dplyr::across(.cols = 5:11,
                                             .fns = ~as.numeric(.)),
                               dplyr::across(.cols = dplyr::contains("Freq"),
-                                            .fns = ~./1),
+                                            .fns = ~./1000),
                               ID = paste0(gen, " ", id))
             }) |>
   dplyr::bind_rows()
