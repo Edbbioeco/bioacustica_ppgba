@@ -34,7 +34,10 @@ dados |> dplyr::glimpse()
 
 ## Tratar ----
 
-dados |>
+dados <- dados |>
   tidyr::fill(Nota) |>
   dplyr::filter(!`Peak Freq (Hz)` |> is.na()) |>
   dplyr::select(Nota, Selection, `Peak Freq (Hz)`, ID)
+
+dados
+
