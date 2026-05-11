@@ -54,3 +54,9 @@ estatísticas <- dados |>
 
 estatísticas
 
+## Tabela flextable ----
+
+estatísticas |>
+  flextable::flextable() |>
+  flextable::align(align = "center", part = "all") |>
+  flextable::width(width = 1.5)
