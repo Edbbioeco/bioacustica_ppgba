@@ -41,3 +41,12 @@ dados <- dados |>
 
 dados
 
+# Estatísticas ----
+
+## Média e Desvio Padrão ----
+
+dados |>
+  dplyr::summarise(Média = `Peak Freq (Hz)` |> mean(),
+                   `Desvio Padrão` = `Peak Freq (Hz)` |> sd(),
+                   .by = Nota)
+
