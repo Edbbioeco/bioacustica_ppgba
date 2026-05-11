@@ -4,6 +4,8 @@ library(tidyverse)
 
 library(readxl)
 
+library(flextable)
+
 library(ggpubr)
 
 library(ggview)
