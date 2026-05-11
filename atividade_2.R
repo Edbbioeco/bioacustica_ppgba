@@ -38,7 +38,7 @@ dados |> dplyr::glimpse()
 dados <- dados |>
   tidyr::fill(Nota) |>
   dplyr::filter(!`Peak Freq (Hz)` |> is.na()) |>
-  dplyr::select(Nota, Selection, `Peak Freq (Hz)`, ID)
+  dplyr::select(Nota, Selection, `Peak Freq (Hz)`, Gênero, ID)
 
 dados
 
@@ -46,8 +46,10 @@ dados
 
 ## Média e Desvio Padrão ----
 
-dados |>
+estatísticas <- dados |>
   dplyr::summarise(Média = `Peak Freq (Hz)` |> mean(),
                    `Desvio Padrão` = `Peak Freq (Hz)` |> sd(),
-                   .by = Nota)
+                   .by = c(Nota, Gênero))
+
+estatísticas
 
