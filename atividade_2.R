@@ -13,8 +13,8 @@ library(ggview)
 ## Importar ----
 
 dados <- purrr::map2(1:10,
-            rep(c("Mulher", "Homem"), each = 5),
-            \(id, gen){
+                     rep(c("Mulher", "Homem"), each = 5),
+                     \(id, gen){
 
               readxl::read_xlsx("gosta_de_cafe.xlsx",
                                 sheet = id) |>
