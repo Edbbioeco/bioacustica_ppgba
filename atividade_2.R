@@ -61,7 +61,12 @@ estatísticas
 
 ## Tabela flextable ----
 
-estatísticas |>
+est_flex <- estatísticas |>
   flextable::flextable() |>
   flextable::align(align = "center", part = "all") |>
-  flextable::width(width = 1.5)
+  flextable::width(width = 1.25) |>
+  flextable::width(width = 1, j = 1:3)
+
+est_flex
+
+est_flex |> flextable::save_as_docx(path = "tabela_estatisticas_atividade_2.docx")
