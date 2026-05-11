@@ -31,3 +31,10 @@ dados <- purrr::map2(1:10,
 dados
 
 dados |> dplyr::glimpse()
+
+## Tratar ----
+
+dados |>
+  tidyr::fill(Nota) |>
+  dplyr::filter(!`Peak Freq (Hz)` |> is.na()) |>
+  dplyr::select(Nota, Selection, `Peak Freq (Hz)`, ID)
