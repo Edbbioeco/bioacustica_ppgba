@@ -87,3 +87,6 @@ dados |>
         legend.position = "none",
         axis.line = element_line(color = "black", linewidth = 1)) +
   ggview::canvas(height = 10, width = 12)
+
+ggsave(filename = "gráfico_atividade_2.png",
+       height = 10, width = 12)
