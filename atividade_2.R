@@ -72,3 +72,19 @@ est_flex <- estatísticas |>
 est_flex
 
 est_flex |> flextable::save_as_docx(path = "tabela_estatisticas_atividade_2.docx")
+
+## Gráfico ----
+
+dados |>
+  ggplot(aes(Gênero, `Peak Freq (Hz)`, fill = Gênero)) +
+  geom_point(size = 4, shape = 21, stroke = 1) +
+  facet_wrap(~Nota, scales = "free_y") +
+  scale_fill_manual(values = c("goldenrod", "forestgreen")) +
+  theme_classic() +
+  theme(axis.text = element_text(size = 20, color = "black"),
+        axis.title = element_text(size = 20, color = "black"),
+        strip.text = element_text(size = 20, color = "black"),
+        strip.background = element_rect(color = "black", fill = "gray", linewidth = 2),
+        legend.position = "none",
+        axis.line = element_line(color = "black", linewidth = 1)) +
+  ggview::canvas(height = 10, width = 12)
