@@ -39,7 +39,12 @@ dados |> dplyr::glimpse()
 dados <- dados |>
   tidyr::fill(Nota) |>
   dplyr::filter(!`Peak Freq (Hz)` |> is.na()) |>
-  dplyr::select(Nota, Selection, `Peak Freq (Hz)`, Gênero, ID)
+  dplyr::select(Nota, Selection, `Peak Freq (Hz)`, Gênero, ID) |>
+  dplyr::mutate(Nota = Nota |> forcats::fct_relevel(c("Gos",
+                                                      "Ta",
+                                                      "De",
+                                                      "Ca",
+                                                      "Fe")))
 
 dados
 
