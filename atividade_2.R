@@ -79,6 +79,20 @@ est_flex
 
 est_flex |> flextable::save_as_docx(path = "tabela_estatisticas_atividade_2.docx")
 
+## Anova ----
+
+### Criar modelos ----
+
+anovas <- purrr::map(c("Gos", "Ta", "De", "Ca", "Fe"),
+                      \(nota) {
+
+                        lm(`Peak Freq (Hz)` ~ Gênero, data = dados |>
+                             dplyr::filter(Nota == nota))
+
+                        })
+
+anovas
+
 ## Gráfico ----
 
 dados |>
