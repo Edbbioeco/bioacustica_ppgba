@@ -138,9 +138,7 @@ anova_esstatistica
 
 anova_flex <- anova_esstatistica |>
   flextable::flextable() |>
-  flextable::align(align = "center", part = "all") |>
-  flextable::width(width = 1.25) |>
-  flextable::width(width = 1, j = 1:4)
+  flextable::align(align = "center", part = "all")
 
 anova_flex
 
