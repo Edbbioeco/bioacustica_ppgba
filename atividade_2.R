@@ -50,7 +50,9 @@ dados
 
 # Estatísticas ----
 
-## Média e Desvio Padrão ----
+## Estatísticas descritivas ----
+
+### Média e Desvio Padrão ----
 
 estatísticas <- dados |>
   dplyr::summarise(Média = `Peak Freq (Hz)` |>
@@ -65,7 +67,7 @@ estatísticas <- dados |>
 
 estatísticas
 
-## Tabela flextable ----
+### Tabela flextable ----
 
 est_flex <- estatísticas |>
   flextable::flextable() |>
