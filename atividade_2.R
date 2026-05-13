@@ -6,6 +6,8 @@ library(readxl)
 
 library(flextable)
 
+library(performance)
+
 library(ggview)
 
 # Dados ----
