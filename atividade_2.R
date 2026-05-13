@@ -93,6 +93,23 @@ anovas <- purrr::map(c("Gos", "Ta", "De", "Ca", "Fe"),
 
 anovas
 
+### Pressupostos ----
+
+purrr::map(anovas, \(modelo){
+
+  modelo |
+    performance::check_normality() |>
+    print()
+
+  modelo |>
+    performance::check_heteroscedasticity() |>
+    print()
+
+  modelo |>
+    performance::check_model(check = c("normality",
+                                       "qq",
+                                       "homogeneity"))})
+
 ## Gráfico ----
 
 dados |>
