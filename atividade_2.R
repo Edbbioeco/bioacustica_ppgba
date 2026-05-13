@@ -93,13 +93,12 @@ notas
 
 ### Criar modelos ----
 
-anovas <- purrr::map(c("Gos", "Ta", "De", "Ca", "Fe"),
-                      \(nota) {
+anovas <- purrr::map(notas, \(nota){
 
-                        lm(`Peak Freq (Hz)` ~ Gênero, data = dados |>
+  lm(`Peak Freq (Hz)` ~ Gênero, data = dados |>
                              dplyr::filter(Nota == nota))
 
-                        })
+  })
 
 anovas
 
@@ -122,7 +121,7 @@ purrr::map(anovas, \(modelo){
 
 ### Estatísticas ----
 
-anova_esstatistica <- purrr::map2(c("Gos", "Ta", "De", "Ca", "Fe"), anovas, \(nota, modelo){
+anova_esstatistica <- purrr::map2(notas, anovas, \(nota, modelo){
 
   anova(modelo) |>
     broom::tidy() |>
