@@ -8,6 +8,8 @@ library(flextable)
 
 library(performance)
 
+library(broom)
+
 library(ggview)
 
 # Dados ----
