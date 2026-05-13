@@ -157,6 +157,7 @@ dados |>
   geom_point(size = 4, shape = 21, stroke = 1) +
   facet_wrap(~Nota, scales = "free_y") +
   scale_fill_manual(values = c("goldenrod", "forestgreen")) +
+  labs(y = "Frequência de pico (Hz)") +
   theme_classic() +
   theme(axis.text = element_text(size = 20, color = "black"),
         axis.title = element_text(size = 20, color = "black"),
