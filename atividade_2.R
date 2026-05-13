@@ -85,6 +85,12 @@ est_flex |> flextable::save_as_docx(path = "tabela_estatisticas_atividade_2.docx
 
 ## Anova ----
 
+### Notas ----
+
+notas <- dados$Nota |> unique()
+
+notas
+
 ### Criar modelos ----
 
 anovas <- purrr::map(c("Gos", "Ta", "De", "Ca", "Fe"),
