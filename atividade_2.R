@@ -132,6 +132,19 @@ anova_esstatistica <- purrr::map2(c("Gos", "Ta", "De", "Ca", "Fe"), anovas, \(no
 
 anova_esstatistica
 
+### Tabela ----
+
+anova_flex <- anova_esstatistica |>
+  flextable::flextable() |>
+  flextable::align(align = "center", part = "all") |>
+  flextable::width(width = 1.25) |>
+  flextable::width(width = 1, j = 1:4)
+
+anova_flex
+
+anova_flex |>
+  flextable::save_as_docx(path = "tabela_anova_atividade_2.docx")
+
 ## Gráfico ----
 
 dados |>
