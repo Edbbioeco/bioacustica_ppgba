@@ -112,6 +112,24 @@ purrr::map(anovas, \(modelo){
                                        "qq",
                                        "homogeneity"))})
 
+### Estatísticas ----
+
+anova_esstatistica <- purrr::map2(c("Gos", "Ta", "De", "Ca", "Fe"), anovas, \(nota, modelo){
+
+  anova(modelo) |>
+    broom::tidy() |>
+    dplyr::mutate(Nota = nota,
+                  df = "1, 9") |>
+    dplyr::select(Nota, statistic, df, p.value) |>
+    dplyr::rename(`F` = statistic,
+                  `p-valor` = p.value)
+
+  }) |>
+  dplyr::bind_rows() |>
+  tidyr::drop_na()
+
+anova_esstatistica
+
 ## Gráfico ----
 
 dados |>
