@@ -123,7 +123,8 @@ purrr::map(anovas, \(modelo){
 
 anova_esstatistica <- purrr::map2(notas, anovas, \(nota, modelo){
 
-  anova(modelo) |>
+  modelo |>
+    anova() |>
     broom::tidy() |>
     dplyr::mutate(Nota = nota,
                   df = "1, 9",
