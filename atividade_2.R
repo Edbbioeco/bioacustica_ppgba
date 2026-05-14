@@ -106,7 +106,7 @@ anovas
 
 purrr::map(anovas, \(modelo){
 
-  modelo |
+  modelo |>
     performance::check_normality() |>
     print()
 
