@@ -31,8 +31,6 @@ purrr::map(audios, seewave::listen)
 ## Espectrograma ----
 
 espectro <- purrr::pmap(list(audios,
-                             list.files(path = "pratica_diferenciacao/") |>
-                               stringr::str_remove(".WAV"),
                              list(c(0.5, 3.5),
                                   c(0.6, 3.2),
                                   c(2, 4.5),
@@ -42,8 +40,10 @@ espectro <- purrr::pmap(list(audios,
                                   c(2.75, 5),
                                   c(2.75, 5),
                                   c(3.35, 5.75),
-                                  c(1.5, 3.75))),
-                        \(audio, nome, limites){
+                                  c(1.5, 3.75)),
+                             list.files(path = "pratica_diferenciacao/") |>
+                               stringr::str_remove(".WAV")),
+                        \(audio, limites, nome){
 
   audio |> seewave::ggspectro(tlim = limites,
                               wl = 2048,
