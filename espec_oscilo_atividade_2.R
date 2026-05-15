@@ -89,6 +89,6 @@ espectro <- purrr::pmap(list(audios ,limites, nomes),
                                   legend.title = element_text(size = 20)) +
     ggview::canvas(height = 10, width = 12)
 
-  })
+                          })
 
 espectro
