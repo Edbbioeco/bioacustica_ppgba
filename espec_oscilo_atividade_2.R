@@ -28,6 +28,21 @@ purrr::map(audios, seewave::listen)
 
 # Gráficos ----
 
+## Limites ----
+
+limites <- list(c(0.5, 3.5),
+                c(0.6, 3.2),
+                c(2, 4.5),
+                c(2, 4.5),
+                c(2, 4.5),
+                c(2.5, 5),
+                c(2.75, 5),
+                c(2.75, 5),
+                c(3.35, 5.75),
+                c(1.5, 3.75))
+
+limites
+
 ## Espectrograma ----
 
 espectro <- purrr::pmap(list(audios,
