@@ -93,7 +93,7 @@ espectro <- purrr::pmap(list(audios ,limites, nomes),
 
                           })
 
-espectro[1]
+espectro
 
 ## Oscilograma ----
 
@@ -136,4 +136,4 @@ oscilo <- purrr::map2(audios,
 
                         })
 
-oscilo[1]
+oscilo
