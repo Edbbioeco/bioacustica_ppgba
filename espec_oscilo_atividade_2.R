@@ -6,6 +6,12 @@ library(tuneR)
 
 library(seewave)
 
+library(viridis)
+
+library(ggview)
+
+library(patchwork)
+
 # Dados ----
 
 ## Importar ----
@@ -137,3 +143,5 @@ oscilo <- purrr::map2(audios,
                         })
 
 oscilo
+
+## Unir gráficos ----
