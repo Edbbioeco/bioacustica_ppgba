@@ -60,7 +60,7 @@ espectro <- purrr::pmap(list(audios ,limites, nomes),
                                                       wn = "blackman",
                                                       ovlp = 99) +
                             geom_tile(aes(fill = amplitude)) +
-                            scale_x_continuous(breaks = seq(0,
+                            scale_x_continuous(breaks = seq(limites[1],
                                                             limites[2],
                                                             length.out = 5),
                                                expand = FALSE) +
