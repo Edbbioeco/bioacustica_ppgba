@@ -43,6 +43,13 @@ limites <- list(c(0.5, 3.5),
 
 limites
 
+## Nomes ----
+
+nomes <- list.files(path = "pratica_diferenciacao/") |>
+  stringr::str_remove(".WAV")
+
+nomes
+
 ## Espectrograma ----
 
 espectro <- purrr::pmap(list(audios,
