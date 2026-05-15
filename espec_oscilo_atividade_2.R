@@ -19,3 +19,9 @@ audios <- purrr::map(list.files(path = "pratica_diferenciacao/",
                      }) |>
   setNames(list.files(path = "pratica_diferenciacao/") |>
              stringr::str_remove(".WAV"))
+
+## Visualizar ----
+
+audios
+
+purrr::map(audios, seewave::listen)
