@@ -60,7 +60,9 @@ espectro <- purrr::pmap(list(audios ,limites, nomes),
                                                       wn = "blackman",
                                                       ovlp = 99) +
                             geom_tile(aes(fill = amplitude)) +
-                            scale_x_continuous(limits = limites,
+                            scale_x_continuous(breaks = seq(0,
+                                                            limites[2],
+                                                            length.out = 5),
                                                expand = FALSE) +
                             scale_y_continuous(expand = FALSE) +
                             scale_fill_viridis_c(name = "Amplitude (dB)",
@@ -91,7 +93,7 @@ espectro <- purrr::pmap(list(audios ,limites, nomes),
 
                           })
 
-espectro
+espectro[1]
 
 ## Oscilograma ----
 
@@ -134,4 +136,4 @@ oscilo <- purrr::map2(audios,
 
                         })
 
-oscilo
+oscilo[1]
