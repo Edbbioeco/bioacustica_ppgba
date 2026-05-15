@@ -147,12 +147,12 @@ oscilo
 ## Unir gráficos ----
 
 graficos_unidos <- purrr::map2(espectro,
-            oscilo,
-            \(espectro, oscilo){
+                               oscilo,
+                               \(espectro, oscilo){
 
-              (espectro / oscilo) &
-                ggview::canvas(height = 10, width = 12)
+                                 (espectro / oscilo) &
+                                   ggview::canvas(height = 10, width = 12)
 
-            })
+                                 })
 
 graficos_unidos
