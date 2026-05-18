@@ -44,3 +44,7 @@ dados_sf |> dplyr::pull(locality)
 
 ggplot() +
   geom_sf(data = dados_sf)
+
+## Exportar ----
+
+dados_sf |> sf::st_write("pontos.shp")
