@@ -160,7 +160,7 @@ dados |>
   theme_classic() +
   theme(axis.text = element_text(size = 20, color = "black"),
         axis.title = element_text(size = 20, color = "black"),
-        strip.text = element_text(size = 20, color = "black"),
+        strip.text = element_text(size = 25, color = "black"),
         strip.background = element_rect(color = "black", fill = "gray", linewidth = 2),
         legend.position = "none",
         axis.line = element_line(color = "black", linewidth = 1)) +
