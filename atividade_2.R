@@ -50,13 +50,13 @@ dados <- dados |>
 
 dados
 
-# Estatísticas ----
+# estatisticas ----
 
-## Estatísticas descritivas ----
+## estatisticas descritivas ----
 
 ### Média e Desvio Padrão ----
 
-estatísticas <- dados |>
+estatisticas <- dados |>
   dplyr::summarise(Média = `Peak Freq (Hz)` |>
                      mean() |>
                      round(2),
@@ -67,11 +67,11 @@ estatísticas <- dados |>
                      round(2),
                    .by = c(Nota, Gênero))
 
-estatísticas
+estatisticas
 
 ### Tabela flextable ----
 
-est_flex <- estatísticas |>
+est_flex <- estatisticas |>
   flextable::flextable() |>
   flextable::align(align = "center", part = "all") |>
   flextable::width(width = 1.25) |>
@@ -117,7 +117,7 @@ purrr::map(anovas, \(modelo){
                                        "qq",
                                        "homogeneity"))})
 
-### Estatísticas ----
+### estatisticas ----
 
 anova_esstatistica <- purrr::map2(notas, anovas, \(nota, modelo){
 
