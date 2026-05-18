@@ -60,3 +60,21 @@ ggplot() +
   tidyterra::geom_spatraster(data = solo) +
   geom_point(data = loc,
              aes(Longitude, Latitude))
+
+## Precipitação ----
+
+### Importar ----
+
+bio <- geodata::worldclim_country(country = "BRA",
+                                  var = "bio",
+                                  res = 0.5,
+                                  path = getwd())
+
+### Visualizar ----
+
+bio
+
+ggplot() +
+  tidyterra::geom_spatraster(data = bio[[1]]) +
+  geom_point(data = loc,
+             aes(Longitude, Latitude))
