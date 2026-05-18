@@ -43,3 +43,13 @@ dados_sf
 
 ggplot() +
   geom_sf(data = dados_sf)
+
+## Filtrar ----
+
+set.seed(123); dados_sf |>
+  dplyr::slice_sample(n = 30) -> dados_sf_filtrado
+
+dados_sf_filtrado
+
+ggplot() +
+  geom_sf(data = dados_sf_filtrado)
