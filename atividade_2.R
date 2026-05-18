@@ -16,10 +16,8 @@ library(ggview)
 
 ## Importar ----
 
-dados <- purrr::pmap(list(1:10,
-                          rep(c("Mulher", "Homem"), each = 5),
-                          rep(1:5, 2)),
-                     \(id, gen, id2){
+dados <- purrr::map(readxl::excel_sheets("gosta_de_cafe.xlsx"),
+                    \(id){
 
               readxl::read_xlsx("gosta_de_cafe.xlsx",
                                 sheet = id) |>
@@ -27,8 +25,8 @@ dados <- purrr::pmap(list(1:10,
                                             .fns = ~as.numeric(.)),
                               dplyr::across(.cols = dplyr::contains("Freq"),
                                             .fns = ~./1000),
-                              Gênero = gen,
-                              ID = paste0(gen, " ", id2))
+                              Gênero = id |> stringr::word(1),
+                              ID = id)
             }) |>
   dplyr::bind_rows()
 
