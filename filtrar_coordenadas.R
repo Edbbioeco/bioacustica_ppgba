@@ -34,22 +34,13 @@ dados_sf <- dados |>
                 decimalLatitude = dplyr::if_else(decimalLatitude < -20,
                                                  decimalLatitude / 10,
                                                  decimalLatitude)) |>
+  dplyr::distinct(decimalLatitude, decimalLatitude, .keep_all = TRUE) |>
   dplyr::filter(!decimalLatitude |> is.na() &
                   !decimalLongitude |> is.na()) |>
   sf::st_as_sf(coords = c("decimalLongitude", "decimalLatitude"),
                crs = 4674)
 
-dados_sf
+dados_sf |> dplyr::pull(locality)
 
 ggplot() +
   geom_sf(data = dados_sf)
-
-## Filtrar ----
-
-set.seed(123); dados_sf |>
-  dplyr::slice_sample(n = 30) -> dados_sf_filtrado
-
-dados_sf_filtrado
-
-ggplot() +
-  geom_sf(data = dados_sf_filtrado)
