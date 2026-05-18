@@ -13,3 +13,5 @@ library(tidyterra)
 library(geodata)
 
 library(elevatr)
+
+library(CDSE)
