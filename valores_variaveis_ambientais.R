@@ -84,8 +84,9 @@ ggplot() +
 ## Baixar ----
 
 elev <- caa |>
-  elevatr::get_aws_terrain(z = 8,
-                           prj = caa |> sf::st_crs())
+  elevatr::get_elev_raster(z = 7,
+                           prj = caa |> sf::st_crs()) |>
+  terra::rast()
 
 ### Visualizar ----
 
