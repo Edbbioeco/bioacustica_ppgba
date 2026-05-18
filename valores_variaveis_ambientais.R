@@ -45,3 +45,18 @@ ggplot() +
   geom_sf(data = caa, color = "black", fill = "goldenrod") +
   geom_point(data = loc,
              aes(Longitude, Latitude))
+
+## Raster de Quantidade Carbono do Solo ----
+
+### Importar ----
+
+solo <- terra::rast("out.tif")
+
+### Visdualizar ----
+
+solo
+
+ggplot() +
+  tidyterra::geom_spatraster(data = solo) +
+  geom_point(data = loc,
+             aes(Longitude, Latitude))
