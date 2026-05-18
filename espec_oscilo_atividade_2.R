@@ -156,3 +156,14 @@ graficos_unidos <- purrr::map2(espectro,
                                  })
 
 graficos_unidos
+
+purrr::map(graficos_unidos, \(grafico){
+
+  ggsave(plot = grafico,
+         filename = paste0("atividade_2/espec_oscilo",
+                           grafico |> names(),
+                           ".png"),
+         height = 10,
+         width = 12)
+
+  })
