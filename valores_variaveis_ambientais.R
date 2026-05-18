@@ -78,3 +78,20 @@ ggplot() +
   tidyterra::geom_spatraster(data = bio[[1]]) +
   geom_point(data = loc,
              aes(Longitude, Latitude))
+
+## Raster de altitude ----
+
+## Baixar ----
+
+elev <- caa |>
+  elevatr::get_aws_terrain(z = 8,
+                           prj = caa |> sf::st_crs())
+
+### Visualizar ----
+
+elev
+
+ggplot() +
+  tidyterra::geom_spatraster(data = elev) +
+  geom_point(data = loc,
+             aes(Longitude, Latitude))
