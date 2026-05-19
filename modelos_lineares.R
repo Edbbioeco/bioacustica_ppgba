@@ -40,7 +40,7 @@ acus |> dplyr::glimpse()
 
 ### Estatísticas dos parâmetros acústicos ----
 
-acus |>
+acus_valores <- acus |>
   dplyr::filter(!View|> stringr::str_detect("Spectrogram")) |>
   dplyr::select(Local, `Peak Freq (Hz)`, `Delta Freq (Hz)`, `Delta Time (s)`) |>
   tidyr::fill(Local) |>
@@ -61,3 +61,5 @@ acus |>
   dplyr::summarise(dplyr::across(.cols = dplyr::where(is.numeric),
                                  .fns = ~mean(.)),
                    .by = local)
+
+acus_valores
