@@ -71,7 +71,7 @@ valores <- acus_valores |>
                      dplyr::filter(!Local |> stringr::str_detect("Chapada do Ar")) |>
                      dplyr::select(2:8))
 
-valores
+valores |> as.data.frame()
 
 # Modelos lineares ----
 
@@ -91,12 +91,14 @@ vars
 
 modelos <- purrr::map(vars, \(vars){
 
-  nlme::gls(valores[[vars]] ~ solo +
-              temperatura_quarto_mais_quante +
-              delta_time_s +
-              numero_notas,
+  formula <- as.formula(paste(vars,
+                              "~ solo + temperatura_quarto_mais_quante + precipitacao_quarto_mais_frio + SAVI"))
+
+  nlme::gls(formula,
             data = valores,
-            correlation = nlme::corExp(~Longitude + Latitude, nugget = TRUE))
+            correlation = nlme::corExp(form = ~Longitude + Latitude, nugget = TRUE))
 
-  })
+  }) |>
+  setNames(paste0("modelo_", vars))
 
+modelos
