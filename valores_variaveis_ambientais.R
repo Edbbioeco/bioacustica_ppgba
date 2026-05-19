@@ -131,7 +131,7 @@ ggplot() +
 
 ## Extrair valores ----
 
-lista_rasters <- list(solo, elev, bio[[19]], savi)
+lista_rasters <- list(solo, elev, bio[[10]], bio[[19]], savi)
 
 lista_rasters
 
@@ -150,7 +150,8 @@ valores_rasters
 valores_trat <- valores_rasters |>
   dplyr::rename("solo" = 1,
                 "elevacao" = 2,
-                "precipitacao_quarto_mais_frio" = 3,
+                "temperatura_quarto_mais_quante" = 3,
+                "precipitacao_quarto_mais_frio" = 4,
                 "SAVI" = 4) |>
   dplyr::mutate(Local = loc$Localidade,
                 Longitude = loc$Longitude,
