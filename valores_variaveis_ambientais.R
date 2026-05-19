@@ -96,3 +96,16 @@ ggplot() +
   tidyterra::geom_spatraster(data = elev) +
   geom_point(data = loc,
              aes(Longitude, Latitude))
+
+# Valores ----
+
+## Trasnformar pontos em shapefile ----
+
+loc_sf <- loc |>
+  sf::st_as_sf(coords = c("Longitude", "Latitude"),
+               crs = 4674)
+
+loc_sf
+
+ggplot() +
+  geom_sf(data = loc_sf)
