@@ -109,3 +109,19 @@ loc_sf
 
 ggplot() +
   geom_sf(data = loc_sf)
+
+## Extrair valores ----
+
+lista_rasters <- list(solo, elev, bio[[19]])
+
+lista_rasters
+
+valores_rasters <- purrr::map(lista_rasters, \(raster){
+
+  terra::extract(x = raster, y = loc_sf) |>
+    dplyr::select(2)
+
+  }) |>
+  dplyr::bind_cols()
+
+valores_rasters
