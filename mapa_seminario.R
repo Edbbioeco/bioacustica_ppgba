@@ -21,3 +21,16 @@ loc <- readxl::read_xlsx("valores_var.xlsx")
 loc
 
 loc |> dplyr::glimpse()
+
+## Biomas ----
+
+### Importar ----
+
+biomas <- geobr::read_biomes()
+
+### Visualizar ----
+
+biomas
+
+ggplot() +
+  geom_sf(data = biomas)
