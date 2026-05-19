@@ -47,3 +47,47 @@ estados
 
 ggplot() +
   geom_sf(data = estados)
+
+# Mapa ----
+
+## Mapa principal ----
+
+mapa_principal <- ggplot() +
+  geom_sf(data = biomas |>
+            tidyr::drop_na(),
+          aes(color = name_biome,
+              fill = name_biome)) +
+  geom_sf(data = estados, color = "black", linewidth = 1, fill = "transparent") +
+  geom_point(data = loc,
+             aes(Longitude,
+                 Latitude,
+                 color = "Registro de ocorrência"),
+             size = 5) +
+  labs(color = NULL,
+       fill = NULL,
+       x = NULL,
+       y = NULL) +
+  scale_color_manual(values = c("darkgreen",
+                                "gold",
+                                "orange",
+                                "forestgreen",
+                                "royalblue",
+                                "orange4",
+                                "Registro de ocorrência" = "black")) +
+  scale_fill_manual(values = c("darkgreen",
+                               "gold",
+                               "orange",
+                               "forestgreen",
+                               "royalblue",
+                               "orange4")) +
+  coord_sf(xlim = c(-44, -35),
+           ylim = c(-17, -4)) +
+  theme_minimal() +
+  theme(axis.text = element_text(size = 25, color = "black"),
+        axis.title = element_text(size = 25, color = "black"),
+        strip.background = element_rect(color = "black", fill = "gray", linewidth = 2),
+        legend.text = element_text(size = 25, color = "black"),
+        legend.position = "bottom") +
+  ggview::canvas(height = 10, width = 12)
+
+mapa_principal
