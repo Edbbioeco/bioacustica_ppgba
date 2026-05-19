@@ -72,3 +72,12 @@ valores <- acus_valores |>
                      dplyr::select(4:7))
 
 valores
+
+# Modelos lineares ----
+
+## Multicolinearidade ----
+
+valores |>
+  dplyr::select(6:9) |>
+  cor(method = "spearman")
+
