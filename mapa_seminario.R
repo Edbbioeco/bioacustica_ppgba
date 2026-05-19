@@ -34,3 +34,16 @@ biomas
 
 ggplot() +
   geom_sf(data = biomas)
+
+## Estados do Brasil ----
+
+### Importar ----
+
+estados <- geobr::read_state()
+
+### Visualizar ----
+
+estados
+
+ggplot() +
+  geom_sf(data = estados)
