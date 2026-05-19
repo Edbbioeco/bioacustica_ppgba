@@ -93,3 +93,41 @@ mapa_principal <- ggplot() +
   ggview::canvas(height = 10, width = 12)
 
 mapa_principal
+
+## Insert map ----
+
+insert_map <- ggplot() +
+  geom_sf(data = biomas |>
+            tidyr::drop_na(),
+          aes(color = name_biome,
+              fill = name_biome)) +
+  geom_sf(data = estados, color = "black", linewidth = 1, fill = "transparent") +
+  labs(color = NULL,
+       fill = NULL,
+       x = NULL,
+       y = NULL) +
+  scale_color_manual(values = c("darkgreen",
+                                "gold",
+                                "orange",
+                                "forestgreen",
+                                "royalblue",
+                                "orange4")) +
+  scale_fill_manual(values = c("darkgreen",
+                               "gold",
+                               "orange",
+                               "forestgreen",
+                               "royalblue",
+                               "orange4")) +
+  geom_rect(aes(xmin = -44,
+                xmax = -35,
+                ymin = -17,
+                ymax = -4),
+            color = "darkred",
+            fill = "darkred",
+            alpha = 0.3,
+            linewidth = 2) +
+  theme_void() +
+  theme(legend.position = "none") +
+  ggview::canvas(height = 10, width = 12)
+
+insert_map
