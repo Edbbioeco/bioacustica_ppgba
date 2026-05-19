@@ -105,4 +105,32 @@ modelos
 
 ## Estatísticas dos modelos ----
 
-purrr::map(modelos, summary)
+nome <- modelos |> names()
+
+nome
+
+estatisticas <- purrr::map2(modelos, vars, \(modelos, nome){
+
+  modelos |>
+    summary() %>%
+    .$tTable |>
+    as.data.frame() |>
+    tibble::rownames_to_column() |>
+    dplyr::rename("Preditor" = 1,
+                  "β1" = 2,
+                  "SE" = 3,
+                  "t" = 4,
+                  "p" = 5) |>
+    dplyr::filter(!Preditor |> stringr::str_detect("Intercept")) |>
+    dplyr::mutate(β1 = β1 |> round(4),
+                  SE = SE |> round(4),
+                  t = t |> round(3),
+                  p = p |> round(2)) |>
+    dplyr::mutate(Modelo =nome,
+                  .before = Preditor)
+
+  }) |>
+  dplyr::bind_rows()
+
+estatisticas
+
