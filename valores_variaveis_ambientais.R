@@ -138,3 +138,8 @@ valores_trat <- valores_rasters |>
                 .before = "solo")
 
 valores_trat
+
+## Exportar ----
+
+valores_trat |>
+  writexl::write_xlsx("valores_var.xlsx")
