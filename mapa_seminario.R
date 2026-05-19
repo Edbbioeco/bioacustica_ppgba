@@ -101,7 +101,7 @@ insert_map <- ggplot() +
             tidyr::drop_na(),
           aes(color = name_biome,
               fill = name_biome)) +
-  geom_sf(data = estados, color = "black", linewidth = 1, fill = "transparent") +
+  geom_sf(data = estados, color = "black", linewidth = 0.5, fill = "transparent") +
   labs(color = NULL,
        fill = NULL,
        x = NULL,
