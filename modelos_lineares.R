@@ -25,3 +25,21 @@ var <- readxl::read_xlsx("valores_var.xlsx")
 var
 
 var |> dplyr::glimpse()
+
+## Parâmetros acústicos ----
+
+### Importar ----
+
+acus <- purrr::map(readxl::excel_sheets, \(sheet){
+
+  readxl::read_xlsx("valores_acustico.xlsx",
+                        sheet = sheet)
+
+                  }) |>
+  dplyr::bind_rows()
+
+### Visualizar ----
+
+acus
+
+acus |> dplyr::glimpse()
