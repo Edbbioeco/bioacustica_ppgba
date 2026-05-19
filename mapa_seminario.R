@@ -8,6 +8,8 @@ library(geobr)
 
 library(ggview)
 
+library(cowplot)
+
 # Dados ----
 
 ## Registros ----
