@@ -97,6 +97,27 @@ ggplot() +
   geom_point(data = loc,
              aes(Longitude, Latitude))
 
+## Raster de bandas espectrais ----
+
+### Importar ----
+
+red <- terra::rast("MYD09Q1.061_sur_refl_b01_20201226T000000_aid0001.tif")
+
+nir <- terra::rast("MYD09Q1.061_sur_refl_b02_20201226T000000_aid0001.tif")
+
+### Calcular SAVI ----
+
+savi <- ((nir - red) / (nir + red + 0.5)) * (1 + 0.5)
+
+### Visualizar ----
+
+savi
+
+ggplot() +
+  tidyterra::geom_spatraster(data = savi) +
+  geom_point(data = loc,
+             aes(Longitude, Latitude))
+
 # Valores ----
 
 ## Trasnformar pontos em shapefile ----
