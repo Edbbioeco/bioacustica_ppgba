@@ -69,7 +69,7 @@ acus_valores
 valores <- acus_valores |>
   dplyr::bind_cols(var |>
                      dplyr::filter(!Local |> stringr::str_detect("Chapada do Ar")) |>
-                     dplyr::select(2:7))
+                     dplyr::select(2:8))
 
 valores
 
@@ -80,3 +80,23 @@ valores
 valores |>
   dplyr::select(6:9) |>
   cor(method = "spearman")
+
+## Criar modelos ----
+
+vars <- valores |>
+  dplyr::select(2:5) |>
+  names()
+
+vars
+
+modelos <- purrr::map(vars, \(vars){
+
+  nlme::gls(valores[[vars]] ~ solo +
+              temperatura_quarto_mais_quante +
+              delta_time_s +
+              numero_notas,
+            data = valores,
+            correlation = nlme::corExp(~Longitude + Latitude, nugget = TRUE))
+
+  })
+
