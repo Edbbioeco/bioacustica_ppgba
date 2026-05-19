@@ -78,7 +78,7 @@ valores
 ## Multicolinearidade ----
 
 valores |>
-  dplyr::select(6:9) |>
+  dplyr::select(8:12) |>
   cor(method = "spearman")
 
 ## Criar modelos ----
