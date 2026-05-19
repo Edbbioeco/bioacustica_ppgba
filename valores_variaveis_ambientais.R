@@ -34,7 +34,7 @@ loc |> dplyr::glimpse()
 
 ### importar ----
 
-caa <- geobr::read_biomes() |>
+caa <- sf::st_read("biomas.shp") |>
   dplyr::filter(name_biome == "Caatinga")
 
 ## Visualizar ----
