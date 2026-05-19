@@ -63,3 +63,12 @@ acus_valores <- acus |>
                    .by = local)
 
 acus_valores
+
+## Unir os dados ----
+
+valores <- acus_valores |>
+  dplyr::bind_cols(var |>
+                     dplyr::filter(!Local |> stringr::str_detect("Chapada do Ar")) |>
+                     dplyr::select(4:7))
+
+valores
