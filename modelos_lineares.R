@@ -1,8 +1,8 @@
 # Pacotes ----
 
-library(tidyverse)
-
 library(readxl)
+
+library(tidyverse)
 
 library(nlme)
 
