@@ -69,7 +69,7 @@ acus_valores
 valores <- acus_valores |>
   dplyr::bind_cols(var |>
                      dplyr::filter(!Local |> stringr::str_detect("Chapada do Ar")) |>
-                     dplyr::select(4:7))
+                     dplyr::select(2:7))
 
 valores
 
@@ -80,4 +80,3 @@ valores
 valores |>
   dplyr::select(6:9) |>
   cor(method = "spearman")
-
