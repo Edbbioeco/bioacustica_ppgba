@@ -4,8 +4,6 @@ library(tidyverse)
 
 library(sf)
 
-library(geobr)
-
 library(terra)
 
 library(tidyterra)
