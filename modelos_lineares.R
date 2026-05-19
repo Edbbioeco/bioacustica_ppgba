@@ -30,16 +30,17 @@ var |> dplyr::glimpse()
 
 ### Importar ----
 
-acus <- purrr::map(readxl::excel_sheets, \(sheet){
-
-  readxl::read_xlsx("valores_acustico.xlsx",
-                        sheet = sheet)
-
-                  }) |>
-  dplyr::bind_rows()
+acus <- readxl::read_xlsx("Bioacustica - Seminarios.xlsx")
 
 ### Visualizar ----
 
 acus
 
 acus |> dplyr::glimpse()
+
+### Estatísticas dos parâmetros acústicos ----
+
+acus |>
+  dplyr::mutate(dplyr::across()) |>
+  dplyr::summarise(numero_de_nomas = `número de notas` |> mean(),
+                   frequencia_de_pico = `peak Freq (hz)` |> mean())
