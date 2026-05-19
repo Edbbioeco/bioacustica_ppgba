@@ -125,3 +125,16 @@ valores_rasters <- purrr::map(lista_rasters, \(raster){
   dplyr::bind_cols()
 
 valores_rasters
+
+## Tratar os valores ----
+
+valores_trat <- valores_rasters |>
+  dplyr::rename("solo" = 1,
+                "elevacao" = 2,
+                "precipitacao_quarto_mais_frio" = 3) |>
+  dplyr::mutate(Local = loc$Localidade,
+                Longitude = loc$Longitude,
+                Latitude = loc$Latitude,
+                .before = "solo")
+
+valores_trat
