@@ -131,3 +131,16 @@ insert_map <- ggplot() +
   ggview::canvas(height = 10, width = 12)
 
 insert_map
+
+## Mapa final ----
+
+cowplot::ggdraw(mapa_principal) +
+  cowplot::draw_plot(insert_map,
+                     x = 0.6,
+                     y = 0.2,
+                     height = 0.35,
+                     width = 0.35) +
+  ggview::canvas(height = 10, width = 12)
+
+ggsave(filename = "mapa_seminario.png",
+       height = 10, width = 12)
