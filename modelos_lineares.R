@@ -102,3 +102,7 @@ modelos <- purrr::map(vars, \(vars){
   setNames(paste0("modelo_", vars))
 
 modelos
+
+## Estatísticas dos modelos ----
+
+purrr::map(modelos, summary)
