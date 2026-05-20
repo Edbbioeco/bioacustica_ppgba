@@ -132,6 +132,10 @@ estatisticas <- purrr::map2(modelos, vars, \(modelos, nome){
 
 estatisticas
 
+## R² ----
+
+purrr::map(modelos, performance::r2)
+
 ## Gráfico ----
 
 variaveis <- c("Frquência de Pico (KHZ)",
