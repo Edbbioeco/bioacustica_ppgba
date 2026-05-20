@@ -6,9 +6,7 @@ library(tidyverse)
 
 library(nlme)
 
-library(broom)
-
-library(performance)
+library(flextable)
 
 library(ggview)
 
