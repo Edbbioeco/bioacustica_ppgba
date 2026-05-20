@@ -132,7 +132,11 @@ estatisticas <- purrr::map2(modelos, vars, \(modelos, nome){
   }) |>
   dplyr::bind_rows()
 
-estatisticas
+estatisticas |>
+  flextable::flextable() |>
+  flextable::align(align = "center", part = "all") |>
+  flextable::bg(i = ~abs(t) >=qt(p = 0.05, df = 8, lower.tail = FALSE),
+                bg = "grey")
 
 ## R² ----
 
