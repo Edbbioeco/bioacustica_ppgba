@@ -8,6 +8,8 @@ library(nlme)
 
 library(flextable)
 
+library(performance)
+
 library(ggview)
 
 # Dados ----
