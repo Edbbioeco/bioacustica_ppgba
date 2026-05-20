@@ -241,7 +241,7 @@ graficos <- purrr::pmap(list(vars, variaveis, sig),
 
 graficos
 
-purrr::iwalk(graficos, \(graficos, nota){
+purrr::imap(graficos, \(graficos, nota){
 
   graficos
 
