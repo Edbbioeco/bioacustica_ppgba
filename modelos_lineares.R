@@ -142,12 +142,53 @@ variaveis <- c("Frquência de Pico (KHZ)",
 sig <- purrr::map(vars, \(vars){
 
   estatisticas |>
-    dplyr::filter(Modelo == vars & t >= qt(p = 0.05, df = 8, lower.tail = FALSE)) |>
+    dplyr::filter(Modelo == vars & abs(t) >= qt(p = 0.05, df = 8, lower.tail = FALSE)) |>
     dplyr::pull(Preditor)
 
   })
 
 sig
+
+purrr::pmap(list(vars, variaveis, sig),
+            \(vars, variaveis, sig){
+
+              valores[-14, ] |>
+                tidyr::pivot_longer(cols = 8:12,
+                                    names_to = "Preditor",
+                                    values_to = "Valor preditor") |>
+                dplyr::mutate(Sig = dplyr::case_when(Preditor %in% sig ~ "Sim",
+                                                     .default = "Não"),
+                              Preditor = dplyr::case_match(
+                                Preditor,
+                                "solo" ~ "ECS",
+                                "elevacao" ~ "Elevação",
+                                "temperatura_quarto_mais_quante" ~ "TQQ",
+                                "precipitacao_quarto_mais_frio" ~ "TQF",
+                                .default = "SAVI")) |>
+                ggplot(aes(`Valor preditor`, .data[[vars]])) +
+                geom_point(size = 5) +
+                facet_wrap(~Preditor, scales = "free_x") +
+                geom_smooth(data = . %>%
+                              dplyr::filter(Sig == "Sim"),
+                            method = "lm",
+                            color = "blue",
+                            se = FALSE) +
+                labs(y = variaveis) +
+                theme_bw() +
+                theme(axis.text = element_text(size = 25, color = "black"),
+                      axis.title = element_text(size = 25, color = "black"),
+                      strip.background = element_rect(color = "black",
+                                                      fill = "gray",
+                                                      linewidth = 2),
+                      strip.text = element_text(size = 25, color = "black"),
+                      legend.text = element_text(size = 25, color = "black"),
+                      legend.position = "bottom",
+                      panel.background = element_rect(color = "black",
+                                                      linewidth = 1)) +
+                ggview::canvas(height = 10, width = 12)
+
+            }) |>
+  setNames(vars)
 
 graficos <- purrr::pmap(list(vars, variaveis, sig),
             \(vars, variaveis, sig){
@@ -163,7 +204,7 @@ graficos <- purrr::pmap(list(vars, variaveis, sig),
                      "solo" ~ "ECS",
                      "elevacao" ~ "Elevação",
                      "temperatura_quarto_mais_quante" ~ "TQQ",
-                     "precipitacao_quarto_mais_frio" ~ "TQF",
+                     "precipitacao_quarto_mais_frio" ~ "PQF",
                      .default = "SAVI")) |>
      ggplot(aes(`Valor preditor`, .data[[vars]])) +
      geom_point(size = 5) +
@@ -182,9 +223,21 @@ graficos <- purrr::pmap(list(vars, variaveis, sig),
                                            linewidth = 2),
            strip.text = element_text(size = 25, color = "black"),
            legend.text = element_text(size = 25, color = "black"),
-           legend.position = "bottom") +
-      ggview::canvas(height = 10, width = 12)
+           legend.position = "bottom",
+           panel.background = element_rect(color = "black", linewidth = 1))
 
-              })
+              }) |>
+  setNames(vars)
 
 graficos
+
+purrr::iwalk(graficos, \(graficos, nota){
+
+  graficos
+
+  ggsave(filename = paste0("grafico_", nota, ".png"),
+         plot = graficos,
+         height = 10, width = 12)
+
+  })
+
