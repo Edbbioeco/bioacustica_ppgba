@@ -92,7 +92,7 @@ voc_spec <- scinax |> seewave::ggspectro(tlim = c(0, 3.5),
                              wn = "blackman",
                              ovlp = 99) +
   geom_tile(aes(fill = amplitude)) +
-  scale_x_continuous(breaks = seq(0, 5, 1),
+  scale_x_continuous(breaks = seq(0, 3.5, length.out = 5),
                      expand = FALSE) +
   scale_y_continuous(limits = c(0, 6),
                      expand = FALSE) +
