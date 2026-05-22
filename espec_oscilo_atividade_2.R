@@ -97,7 +97,8 @@ espectro <- purrr::pmap(list(audios ,limites, nomes),
                                   legend.title = element_text(size = 20)) +
     ggview::canvas(height = 10, width = 12)
 
-                          })
+                          },
+    .progress = TRUE)
 
 espectro
 
@@ -140,7 +141,8 @@ oscilo <- purrr::map2(audios,
                                 legend.title = element_text(size = 20)) +
                           ggview::canvas(height = 10, width = 12)
 
-                        })
+                        },
+                      .progress = TRUE)
 
 oscilo
 
@@ -153,7 +155,8 @@ graficos_unidos <- purrr::map2(espectro,
                                  (espectro / oscilo) &
                                    ggview::canvas(height = 10, width = 12)
 
-                                 })
+                                 },
+                               .progress = TRUE)
 
 graficos_unidos
 
@@ -169,4 +172,5 @@ purrr::map2(graficos_unidos,
          height = 10,
          width = 12)
 
-  })
+  },
+  .progress = TRUE)
