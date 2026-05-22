@@ -16,14 +16,14 @@ library(ggview)
 
 ## Importar ----
 
-scinax <- tuneR::readWave("Scinax x signatus.wav")
+scinax <- tuneR::readWave("Scinax x signatus_trat.wav")
 
 ## Visualizar ----
 
 scinax
 
 scinax |> seewave::spectro(flim = c(0, 6),
-                           tlim = c(0, 5),
+                           tlim = c(0, 3.5),
                            ovlp = 99,
                            wn = "blackman",
                            wl = 2048)
