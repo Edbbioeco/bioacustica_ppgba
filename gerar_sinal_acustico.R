@@ -164,3 +164,6 @@ voc_oscilo
 
 (voc_spec / voc_oscilo) &
   ggview::canvas(height = 10, width = 12)
+
+ggsave(filename = "atividade_3_voc.png",
+       height = 10, width = 12)
