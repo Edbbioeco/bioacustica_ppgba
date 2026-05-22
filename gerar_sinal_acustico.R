@@ -159,3 +159,8 @@ voc_oscilo <- tibble::tibble(tempo = seq(0,
   ggview::canvas(height = 10, width = 12)
 
 voc_oscilo
+
+### Unir os dados ----
+
+(voc_spec / voc_oscilo) &
+  ggview::canvas(height = 10, width = 12)
