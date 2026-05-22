@@ -79,3 +79,44 @@ sinal_completo |> seewave::spectro(flim = c(0, 6),
                                    wn = "blackman",
                                    wl = 2048)
 
+# Gráfico ----
+
+## Vocalização ----
+
+### Espectrograma ----
+
+voc_spec <- scinax |> seewave::ggspectro(tlim = c(0, 3.5),
+                             wl = 2048,
+                             wn = "blackman",
+                             ovlp = 99) +
+  geom_tile(aes(fill = amplitude)) +
+  scale_x_continuous(breaks = seq(0, 5, 1),
+                     expand = FALSE) +
+  scale_y_continuous(limits = c(0, 6),
+                     expand = FALSE) +
+  scale_fill_viridis_c(name = "Amplitude (dB)",
+                       limits = c(-80, 0),
+                       na.value = "transparent",
+                       guide = guide_colorbar(
+                         title.hjust = 0.5,
+                         barheight = 20,
+                         frame.colour = "black",
+                         ticks.colour = "black")) +
+  labs(y = "Frequência (KHz)") +
+  theme_classic() +
+  theme(axis.text = element_text(size = 17.5),
+        axis.title = element_text(size = 20),
+        axis.title.x = element_blank(),
+        axis.text.x = element_blank(),
+        plot.title = element_text(size = 20),
+        panel.grid = element_line(linetype = "dashed",
+                                  color = "gray",
+                                  linewidth = 1),
+        panel.grid.minor = element_blank(),
+        panel.background = element_rect(
+          fill = viridis::viridis(n = 1)),
+        legend.text = element_text(size = 17.5),
+        legend.title = element_text(size = 20)) +
+  ggview::canvas(height = 10, width = 12)
+
+voc_spec
