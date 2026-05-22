@@ -120,3 +120,40 @@ voc_spec <- scinax |> seewave::ggspectro(tlim = c(0, 3.5),
   ggview::canvas(height = 10, width = 12)
 
 voc_spec
+
+### Oscilograma ----
+
+voc_oscilo <- tibble::tibble(tempo = seq(0,
+                                         3.5,
+                                         length.out = scinax |>
+                                           seewave::oscillo(
+                                             from = 0,
+                                             to = 3.5,
+                                             plot = FALSE) |>
+                                           as.numeric() |>
+                                           length()),
+                             amplitude = scinax |>
+                               seewave::oscillo(from = 0,
+                                                to = 3.5,
+                                                plot = FALSE) |>
+                               as.numeric()) |>
+  ggplot(aes(tempo, amplitude)) +
+  geom_line(linewidth = 1) +
+  scale_x_continuous(breaks = seq(0,
+                                  3.5,
+                                  length.out = 5),
+                     expand = FALSE) +
+  labs(x = "Tempo (s)",
+       y = "Amplitude (KU)") +
+  theme_classic() +
+  theme(axis.text = element_text(size = 17.5),
+        axis.title = element_text(size = 20),
+        panel.grid = element_line(linetype = "dashed",
+                                  color = "gray",
+                                  linewidth = 1),
+        panel.grid.minor = element_blank(),
+        legend.text = element_text(size = 17.5),
+        legend.title = element_text(size = 20)) +
+  ggview::canvas(height = 10, width = 12)
+
+voc_oscilo
