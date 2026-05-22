@@ -211,3 +211,50 @@ sinal_spec <- sinal_completo |>
   ggview::canvas(height = 10, width = 12)
 
 sinal_spec
+
+### Oscilograma ----
+
+sinal_oscilo <- tibble::tibble(tempo = seq(0,
+                                           sinal_completo |> seewave::duration(),
+                                           length.out = sinal_completo |>
+                                             seewave::oscillo(
+                                             from = 0,
+                                             to = sinal_completo |>
+                                               seewave::duration(),
+                                             plot = FALSE) |>
+                                           as.numeric() |>
+                                           length()),
+                             amplitude = sinal_completo |>
+                               seewave::oscillo(from = 0,
+                                                to = sinal_completo |>
+                                                  seewave::duration(),
+                                                plot = FALSE) |>
+                               as.numeric()) |>
+  ggplot(aes(tempo, amplitude)) +
+  geom_line(linewidth = 1) +
+  scale_x_continuous(breaks = seq(0,
+                                  sinal_completo |> seewave::duration(),
+                                  length.out = 5),
+                     expand = FALSE) +
+  labs(x = "Tempo (s)",
+       y = "Amplitude (KU)") +
+  theme_classic() +
+  theme(axis.text = element_text(size = 17.5),
+        axis.title = element_text(size = 20),
+        panel.grid = element_line(linetype = "dashed",
+                                  color = "gray",
+                                  linewidth = 1),
+        panel.grid.minor = element_blank(),
+        legend.text = element_text(size = 17.5),
+        legend.title = element_text(size = 20)) +
+  ggview::canvas(height = 10, width = 12)
+
+sinal_oscilo
+
+### Unir os dados ----
+
+(sinal_spec / sinal_oscilo) &
+  ggview::canvas(height = 10, width = 12)
+
+ggsave(filename = "atividade_3_sinal.png",
+       height = 10, width = 12)
