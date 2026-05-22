@@ -163,7 +163,8 @@ purrr::pmap(list(vars, variaveis, sig),
             \(vars, variaveis, sig){
 
               valores[-14, ] |>
-                tidyr::pivot_longer(cols = 8:12,
+                dplyr::select(-elevacao) |>
+                tidyr::pivot_longer(cols = 8:11,
                                     names_to = "Preditor",
                                     values_to = "Valor preditor") |>
                 dplyr::mutate(Sig = dplyr::case_when(Preditor %in% sig ~ "Sim",
@@ -171,7 +172,6 @@ purrr::pmap(list(vars, variaveis, sig),
                               Preditor = dplyr::case_match(
                                 Preditor,
                                 "solo" ~ "ECS",
-                                "elevacao" ~ "Elevação",
                                 "temperatura_quarto_mais_quante" ~ "TQQ",
                                 "precipitacao_quarto_mais_frio" ~ "TQF",
                                 .default = "SAVI")) |>
@@ -204,7 +204,8 @@ graficos <- purrr::pmap(list(vars, variaveis, sig),
             \(vars, variaveis, sig){
 
   valores[-14, ] |>
-    tidyr::pivot_longer(cols = 8:12,
+                dplyr::select(-elevacao) |>
+    tidyr::pivot_longer(cols = 8:11,
                         names_to = "Preditor",
                         values_to = "Valor preditor") |>
      dplyr::mutate(Sig = dplyr::case_when(Preditor %in% sig ~ "Sim",
