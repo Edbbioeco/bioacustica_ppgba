@@ -42,3 +42,10 @@ sinal <- do.call(tuneR::bind,
 
                 })
         )
+
+sinal |> seewave::spectro(flim = c(0, 5),
+                          ovlp = 99,
+                          wn = "blackman",
+                          wl = 2048)
+
+sinal |> seewave::listen()
