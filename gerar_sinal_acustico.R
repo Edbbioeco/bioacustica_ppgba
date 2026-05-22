@@ -12,6 +12,8 @@ library(viridis)
 
 library(ggview)
 
+library(patchwork)
+
 # Dados ----
 
 ## Importar ----
