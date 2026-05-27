@@ -133,7 +133,12 @@ estatisticas <- purrr::map2(modelos, vars, \(modelos, nome){
                   .before = Preditor)
 
   }) |>
-  dplyr::bind_rows()
+  dplyr::bind_rows() |>
+  dplyr::mutate(Preditor = dplyr::case_match(Preditor,
+                                             "solo" ~ "ECS (kg/m²)",
+                                             "temperatura_quarto_mais_quante" ~ "TQQ (°C)",
+                                             "precipitacao_quarto_mais_frio" ~ "PQF (mm)",
+                                             .default = Preditor))
 
 estatisticas |>
   flextable::flextable() |>
