@@ -55,6 +55,8 @@ vocs <- purrr::map(list.files(path = "./voc_myrmorchilus",
 
 vocalizacoes <- purrr::map(vocs,
                            tuneR::readWave,
-                           .progress = TRUE)
+                           .progress = TRUE) |>
+  setNames(list.files(path = "./voc_myrmorchilus") |>
+             stringr::str_remove(".wav"))
 
 vocalizacoes
