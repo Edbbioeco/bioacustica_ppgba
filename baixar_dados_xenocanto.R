@@ -97,6 +97,7 @@ purrr::map2(vocalizacoes,
                                       frame.colour = "black",
                                       ticks.colour = "black")) +
                labs(title = nome,
+                    x = "Tempo (s)",
                     y = "Frequência (KHz)") +
                theme_classic() +
                theme(axis.text = element_text(size = 17.5),
