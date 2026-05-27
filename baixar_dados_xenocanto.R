@@ -35,7 +35,8 @@ metadados_trat |>
 dir.create(path = "./voc_myrmorchilus")
 
 metadados_trat |>
-  suwo::download_media(path = "./voc_myrmorchilus")
+  suwo::download_media(path = "./voc_myrmorchilus",
+                       overwrite = TRUE)
 
 # Analisar dados ----
 
@@ -62,3 +63,7 @@ vocalizacoes <- purrr::map(vocs,
              stringr::str_remove(".wav"))
 
 vocalizacoes
+
+## Duração dos cantos ----
+
+purrr::map_dbl(vocalizacoes, seewave::duration)
