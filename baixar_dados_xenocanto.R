@@ -101,7 +101,6 @@ purrr::map2(vocalizacoes,
                theme_classic() +
                theme(axis.text = element_text(size = 17.5),
                      axis.title = element_text(size = 20),
-                     axis.text.x = element_blank(),
                      plot.title = element_text(size = 20),
                      panel.grid = element_line(linetype = "dashed",
                                                color = "gray",
