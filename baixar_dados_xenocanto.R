@@ -37,6 +37,7 @@ metadados_trat |>
 
 ## Lista de vocalizações ----
 
-vocs <- list.files(path = "./voc_myrmorchilus")
+vocs <- list.files(path = "./voc_myrmorchilus",
+                   full.names = TRUE)
 
 vocs
