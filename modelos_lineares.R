@@ -191,7 +191,7 @@ purrr::pmap(list(vars, variaveis, sig),
                                 Preditor,
                                 "solo" ~ "ECS",
                                 "temperatura_quarto_mais_quante" ~ "TQQ",
-                                "precipitacao_quarto_mais_frio" ~ "TQF",
+                                "precipitacao_quarto_mais_frio" ~ "PQF",
                                 .default = "SAVI")) |>
                 ggplot(aes(`Valor preditor`, .data[[vars]])) +
                 geom_point(size = 5) +
