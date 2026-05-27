@@ -8,6 +8,8 @@ library(av)
 
 library(tuneR)
 
+library(seewave)
+
 # Dados ----
 
 ## Metadados ----
