@@ -6,6 +6,8 @@ library(tidyverse)
 
 library(av)
 
+library(tuneR)
+
 # Dados ----
 
 ## Metadados ----
