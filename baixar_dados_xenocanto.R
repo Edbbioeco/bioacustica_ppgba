@@ -69,8 +69,9 @@ purrr::map_dbl(vocalizacoes, seewave::duration)
 
 ## Visualizar vocalizações ----
 
-purrr::map(vocalizacoes,
-           \(voc){
+purrr::map2(vocalizacoes,
+            vocalizacoes |> names(),
+            \(voc, nome){
 
              voc |>
                seewave::ggspectro(tlim = c(0, 3.5),
@@ -89,12 +90,11 @@ purrr::map(vocalizacoes,
                                       barheight = 20,
                                       frame.colour = "black",
                                       ticks.colour = "black")) +
-               labs(title = voc |> names(),
+               labs(title = nome,
                     y = "Frequência (KHz)") +
                theme_classic() +
                theme(axis.text = element_text(size = 17.5),
                      axis.title = element_text(size = 20),
-                     axis.title.x = element_blank(),
                      axis.text.x = element_blank(),
                      plot.title = element_text(size = 20),
                      panel.grid = element_line(linetype = "dashed",
@@ -105,6 +105,8 @@ purrr::map(vocalizacoes,
                        fill = viridis::viridis(n = 1)),
                      legend.text = element_text(size = 17.5),
                      legend.title = element_text(size = 20)) +
-               ggview::canvas(height = 10, width = 12)
+               ggview::canvas(height = 10, width = 12) |>
+               print()
+
            },
            .progress = TRUE)
