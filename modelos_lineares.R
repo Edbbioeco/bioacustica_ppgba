@@ -42,7 +42,10 @@ acus |> dplyr::glimpse()
 
 acus_valores <- acus |>
   dplyr::filter(!View|> stringr::str_detect("Spectrogram")) |>
-  dplyr::select(Local, `Peak Freq (Hz)`, `Delta Freq (Hz)`, `Delta Time (s)`) |>
+  dplyr::select(Local,
+                `Peak Freq (Hz)`,
+                `Delta Freq (Hz)`,
+                `Delta Time (s)`) |>
   tidyr::fill(Local) |>
   dplyr::filter(!`Peak Freq (Hz)` |> is.na()) |>
   dplyr::mutate(dplyr::across(.cols = dplyr::contains(c("Freq", "Time")),
