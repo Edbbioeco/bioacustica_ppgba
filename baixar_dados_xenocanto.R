@@ -10,6 +10,10 @@ library(tuneR)
 
 library(seewave)
 
+library(viridis)
+
+library(ggview)
+
 # Dados ----
 
 ## Metadados ----
