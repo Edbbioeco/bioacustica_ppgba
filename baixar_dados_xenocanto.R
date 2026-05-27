@@ -25,3 +25,10 @@ metadados_trat
 
 metadados_trat |>
   suwo::map_locations()
+
+## Baixar os dados ----
+
+dir.create(path = "./voc_myrmorchilus")
+
+metadados |>
+  suwo::download_media(path = "./voc_myrmorchilus")
