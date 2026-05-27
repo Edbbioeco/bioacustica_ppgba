@@ -4,6 +4,8 @@ library(suwo)
 
 library(tidyverse)
 
+library(av)
+
 # Dados ----
 
 ## Metadados ----
