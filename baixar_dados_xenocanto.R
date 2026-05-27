@@ -49,8 +49,7 @@ vocs <- purrr::map(list.files(path = "./voc_myrmorchilus",
                      av::av_audio_convert(voc,
                                           output = voc,
                                           format = "wav",
-                                          sample_rate = 44100,
-                                          channels = 1)
+                                          sample_rate = 44100)
                    },
                    .progress = TRUE)
 
