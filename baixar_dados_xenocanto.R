@@ -35,9 +35,16 @@ metadados_trat |>
 
 # Analisar dados ----
 
-## Lista de vocalizações ----
+## Consertar os áudios ----
 
-vocs <- list.files(path = "./voc_myrmorchilus",
-                   full.names = TRUE)
+vocs <- purrr::map(list.files(path = "./voc_myrmorchilus",
+                              full.names = TRUE),
+                   \(voc){
 
-vocs
+                     av::av_audio_convert(voc,
+                                          output = voc,
+                                          format = "wav",
+                                          sample_rate = 44100,
+                                          channels = 1)
+                   },
+                   .progress = TRUE)
