@@ -142,6 +142,8 @@ estatisticas <- purrr::map2(modelos, vars, \(modelos, nome){
 
 estatisticas |>
   flextable::flextable() |>
+  flextable::width(width = 1,
+                   j = 2) |>
   flextable::align(align = "center", part = "all") |>
   flextable::bg(i = ~abs(t) >=qt(p = 0.05, df = 8, lower.tail = FALSE),
                 bg = "grey")
