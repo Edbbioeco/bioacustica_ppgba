@@ -32,3 +32,11 @@ dir.create(path = "./voc_myrmorchilus")
 
 metadados_trat |>
   suwo::download_media(path = "./voc_myrmorchilus")
+
+# Analisar dados ----
+
+## Lista de vocalizações ----
+
+vocs <- list.files(path = "./voc_myrmorchilus")
+
+vocs
