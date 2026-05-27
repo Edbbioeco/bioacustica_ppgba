@@ -13,3 +13,10 @@ metadados <- suwo::query_xenocanto(species = "Myrmorchilus strigilatus")
 metadados
 
 metadados |> dplyr::glimpse()
+
+## Filtrar dados a serem baixados ----
+
+metadados_trat <- metadados |>
+  dplyr::filter(country == "Brazil" & file_extension == "wav")
+
+metadados_trat
