@@ -134,7 +134,12 @@ estatisticas <- purrr::map2(modelos, vars, \(modelos, nome){
 
   }) |>
   dplyr::bind_rows() |>
-  dplyr::mutate(Preditor = dplyr::case_match(Preditor,
+  dplyr::mutate(Modelo = dplyr::case_match(Modelo,
+                                           "peak_freq_khz" ~ "Peak freq. (KHz)",
+                                           "delta_freq_khz" ~ "Delta freq. (KHz)",
+                                           "delta_time_s" ~ "Delta time (s)",
+                                           "numero_notas" ~ "Número de notas"),
+                Preditor = dplyr::case_match(Preditor,
                                              "solo" ~ "ECS (kg/m²)",
                                              "temperatura_quarto_mais_quante" ~ "TQQ (°C)",
                                              "precipitacao_quarto_mais_frio" ~ "PQF (mm)",
