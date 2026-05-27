@@ -20,3 +20,8 @@ metadados_trat <- metadados |>
   dplyr::filter(country == "Brazil" & file_extension == "wav")
 
 metadados_trat
+
+## Mapa das áreas ----
+
+metadados_trat |>
+  suwo::map_locations()
