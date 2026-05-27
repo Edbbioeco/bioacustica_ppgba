@@ -50,3 +50,11 @@ vocs <- purrr::map(list.files(path = "./voc_myrmorchilus",
                                           channels = 1)
                    },
                    .progress = TRUE)
+
+## Importar áudios ----
+
+vocalizacoes <- purrr::map(vocs,
+                           tuneR::readWave,
+                           .progress = TRUE)
+
+vocalizacoes
