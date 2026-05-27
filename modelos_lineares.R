@@ -153,7 +153,8 @@ estatisticas |>
                    j = 2) |>
   flextable::align(align = "center", part = "all") |>
   flextable::bg(i = ~abs(t) >=qt(p = 0.05, df = 8, lower.tail = FALSE),
-                bg = "grey")
+                bg = "grey") |>
+  flextable::add_footer_lines(values = "ECS = Estoque de carbono do solo\nTQQ = Temperatura do quarto mais quente\nPQF = Precipitação do quarto mais frio\nSAVI = Soil-Adjusted Vegetation Index")
 
 ## R² ----
 
