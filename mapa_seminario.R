@@ -57,8 +57,8 @@ ggplot() +
 mapa_principal <- ggplot() +
   geom_sf(data = biomas |>
             tidyr::drop_na(),
-          aes(color = name_biome,
-              fill = name_biome)) +
+          aes(fill = name_biome),
+          linewidth = 0) +
   geom_sf(data = estados, color = "black", linewidth = 1, fill = "transparent") +
   geom_point(data = loc,
              aes(Longitude,
