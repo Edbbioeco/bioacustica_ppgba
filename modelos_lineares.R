@@ -218,7 +218,7 @@ purrr::pmap(list(vars, variaveis, sig),
                       legend.position = "bottom",
                       panel.background = element_rect(color = "black",
                                                       linewidth = 1)) +
-                ggview::canvas(height = 10, width = 12)
+                ggview::canvas(height = 12, width = 14)
 
             }) |>
   setNames(vars)
@@ -271,7 +271,7 @@ purrr::imap(graficos, \(graficos, nota){
 
   ggsave(filename = paste0("grafico_", nota, ".png"),
          plot = graficos,
-         height = 10, width = 12)
+         height = 12, width = 14)
 
   })
 
