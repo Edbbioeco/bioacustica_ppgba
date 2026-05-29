@@ -143,7 +143,7 @@ anova_esstatistica
 anova_flex <- anova_esstatistica |>
   flextable::flextable() |>
   flextable::align(align = "center", part = "all") |>
-  flextable::bg(bg = "white")
+  flextable::bg(bg = "white", part = "all")
 
 anova_flex
 
