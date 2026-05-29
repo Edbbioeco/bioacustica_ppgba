@@ -140,6 +140,7 @@ cowplot::ggdraw(mapa_principal) +
                      y = 0.2,
                      height = 0.35,
                      width = 0.35) +
+  theme(plot.background = element_rect(color = "white", fill = "white")) +
   ggview::canvas(height = 10, width = 12)
 
 ggsave(filename = "mapa_seminario.png",
