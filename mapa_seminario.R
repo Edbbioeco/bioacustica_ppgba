@@ -106,12 +106,6 @@ insert_map <- ggplot() +
        fill = NULL,
        x = NULL,
        y = NULL) +
-  scale_color_manual(values = c("darkgreen",
-                                "gold",
-                                "orange",
-                                "forestgreen",
-                                "royalblue",
-                                "orange4")) +
   scale_fill_manual(values = c("darkgreen",
                                "gold",
                                "orange",
