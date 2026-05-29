@@ -150,6 +150,9 @@ anova_flex
 anova_flex |>
   flextable::save_as_docx(path = "tabela_anova_atividade_2.docx")
 
+anova_flex |>
+  flextable::save_as_image(path = "tabela_anova_atividade_2.png")
+
 ## Gráfico ----
 
 dados |>
