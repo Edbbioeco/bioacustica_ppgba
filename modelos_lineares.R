@@ -167,12 +167,12 @@ variaveis <- c("Frequência de Pico (KHZ)",
                "Intervalo da nota (s)",
                "Número de notas")
 
-modelos <- estatisticas |>
+var_modelos <- estatisticas |>
   dplyr::pull(Modelo) |> unique()
 
-modelos
+var_modelos
 
-sig <- purrr::map(modelos, \(modelos){
+sig <- purrr::map(var_modelos, \(modelos){
 
   estatisticas |>
     dplyr::filter(Modelo == modelos & abs(t) >= qt(p = 0.05, df = 8, lower.tail = FALSE)) |>
